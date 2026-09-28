@@ -1,0 +1,80 @@
+﻿@using TravelProject.Dto.AboutUsDtos
+@model UpdateAboutUsDto
+
+@{
+    ViewBag.Title = "Hakkımızda Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container">
+
+    <h2>Hakkımızda Güncelle</h2>
+
+    <form asp-controller="AdminAbout"
+          asp-action="Update"
+          method="post"
+          class="w3-container w3-card-4 w3-light-grey"
+          style="padding:25px; margin-top:20px;">
+
+        <input type="hidden"
+               asp-for="AboutUsId" />
+
+        <p>
+            <label>Başlık</label>
+
+            <input asp-for="Title"
+                   class="w3-input w3-border"
+                   type="text" />
+        </p>
+
+        <p>
+            <label>Açıklama</label>
+
+            <textarea asp-for="Description"
+                      class="w3-input w3-border"
+                      rows="8"></textarea>
+        </p>
+
+        <p>
+            <label>Görsel Yolu</label>
+
+            <input asp-for="ImageUrl"
+                   class="w3-input w3-border"
+                   type="text" />
+        </p>
+
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <p>
+                <label>Mevcut Görsel</label>
+            </p>
+
+            <p>
+                <img src="@Model.ImageUrl"
+                     alt="@Model.Title"
+                     style="width:250px; height:150px; object-fit:cover;" />
+            </p>
+        }
+
+        <p>
+
+            <button type="submit"
+                    class="w3-button w3-blue">
+
+                Güncelle
+
+            </button>
+
+            <a asp-controller="AdminAbout"
+               asp-action="Index"
+               class="w3-button w3-grey">
+
+                Listeye Dön
+
+            </a>
+
+        </p>
+
+    </form>
+
+</div>

@@ -1,0 +1,100 @@
+﻿@using TravelProject.Dto.BlogDtos
+@model List<ResultBlogDto>
+
+<div class="padding1">
+
+    <h4>Öne Çıkan Gezi Yazıları</h4>
+
+    @if (Model != null && Model.Any())
+    {
+        <!-- SOL SÜTUN -->
+        <div class="box-left">
+
+            @foreach (var item in Model.Take(3))
+            {
+                <div class="bot-img">
+
+                    <a asp-controller="Blog"
+                       asp-action="Detail"
+                       asp-route-id="@item.BlogId">
+
+                        <img src="@item.ImageUrl"
+                             alt="@item.Title" />
+
+                    </a>
+
+                </div>
+
+
+                <div class="bot-desc">
+
+                    <p>
+                        @item.Description
+                    </p>
+
+                    <a asp-controller="Blog"
+                       asp-action="Detail"
+                       asp-route-id="@item.BlogId"
+                       class="link1">
+
+                        Devamını Oku
+
+                    </a>
+
+                </div>
+
+                <div class="clear"></div>
+            }
+
+        </div>
+
+
+        <!-- SAĞ SÜTUN -->
+        <div class="box1-left">
+
+            @foreach (var item in Model.Skip(3).Take(3))
+            {
+                <div class="bot-img">
+
+                    <a asp-controller="Blog"
+                       asp-action="Detail"
+                       asp-route-id="@item.BlogId">
+
+                        <img src="@item.ImageUrl"
+                             alt="@item.Title" />
+
+                    </a>
+
+                </div>
+
+
+                <div class="bot-desc1">
+
+                    <p>
+                        @item.Description
+                    </p>
+
+                    <a asp-controller="Blog"
+                       asp-action="Detail"
+                       asp-route-id="@item.BlogId"
+                       class="link1">
+
+                        Devamını Oku
+
+                    </a>
+
+                </div>
+
+                <div class="clear"></div>
+            }
+
+        </div>
+    }
+    else
+    {
+        <p>
+            Henüz öne çıkan blog bulunamadı.
+        </p>
+    }
+
+</div>

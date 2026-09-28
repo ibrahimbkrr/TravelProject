@@ -1,0 +1,108 @@
+﻿@using TravelProject.WebUI.Models
+@model AdminDashboardViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container">
+
+    <h2>Admin Paneli</h2>
+
+    <p>
+        TravelProject yönetim paneline hoş geldiniz.
+    </p>
+
+    <div class="w3-row-padding"
+         style="margin-top:30px;">
+
+        <!-- BLOG -->
+        <div class="w3-third">
+
+            <div class="w3-card-4 w3-blue"
+                 style="padding:25px;">
+
+                <h3>Bloglar</h3>
+
+                <h1>
+                    @Model.BlogCount
+                </h1>
+
+                <p>
+                    Toplam blog sayısı
+                </p>
+
+                <a asp-controller="AdminBlog"
+                   asp-action="Index"
+                   class="w3-button w3-white">
+
+                    Blogları Gör
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- YORUM -->
+        <div class="w3-third">
+
+            <div class="w3-card-4 w3-green"
+                 style="padding:25px;">
+
+                <h3>Yorumlar</h3>
+
+                <h1>
+                    @Model.CommentCount
+                </h1>
+
+                <p>
+                    Toplam yorum sayısı
+                </p>
+
+                <a asp-controller="AdminComment"
+                   asp-action="Index"
+                   class="w3-button w3-white">
+
+                    Yorumları Gör
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MESAJ -->
+        <div class="w3-third">
+
+            <div class="w3-card-4 w3-orange"
+                 style="padding:25px;">
+
+                <h3>Mesajlar</h3>
+
+                <h1>
+                    @Model.ContactCount
+                </h1>
+
+                <p>
+                    Toplam mesaj sayısı
+                </p>
+
+                <a asp-controller="AdminContact"
+                   asp-action="Index"
+                   class="w3-button w3-white">
+
+                    Mesajları Gör
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

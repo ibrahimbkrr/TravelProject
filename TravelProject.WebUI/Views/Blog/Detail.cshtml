@@ -1,0 +1,45 @@
+﻿@using TravelProject.WebUI.Models
+@model BlogDetailViewModel
+
+@{
+    ViewData["Title"] = Model.Blog.Title;
+}
+
+<link href="~/web2/css/blog-detail.css"
+      rel="stylesheet"
+      asp-append-version="true" />
+
+<div class="blog-detail">
+
+    <div class="wrap">
+
+        <div class="blog-main">
+
+            <partial name="DetailPartial/_BlogContentPartial"
+                     model="Model.Blog" />
+
+            <partial name="DetailPartial/_BlogAuthorPartial" />
+
+            <partial name="DetailPartial/_BlogCommentsPartial"
+                     model="Model.Comments" />
+
+            <partial name="DetailPartial/_BlogCommentFormPartial"
+                     model="Model" />
+
+        </div>
+
+        <div class="blog-sidebar">
+
+            <partial name="DetailPartial/_RecentBlogsPartial"
+                     model="Model.RecentBlogs" />
+
+            <partial name="DetailPartial/_RecentCommentsPartial"
+                     model="Model.Comments" />
+
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+
+</div>

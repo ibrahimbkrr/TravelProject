@@ -1,0 +1,58 @@
+﻿@using TravelProject.Dto.CommentDtos
+@model List<ResultCommentDto>
+
+<div class="blog-comments">
+
+    <div class="comments-header">
+
+        <h3>
+            Yorumlar (@Model.Count)
+        </h3>
+
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var comment in Model)
+        {
+            <div class="comment-item">
+
+                <div class="comment-avatar">
+                    @comment.UserName.Substring(0, 1).ToUpper()
+                </div>
+
+                <div class="comment-body">
+
+                    <div class="comment-info">
+
+                        <strong>
+                            @comment.UserName
+                        </strong>
+
+                        <span>
+                            @comment.CreatedDate.ToString("dd.MM.yyyy HH:mm")
+                        </span>
+
+                    </div>
+
+                    <p>
+                        @comment.CommentText
+                    </p>
+
+                </div>
+
+            </div>
+        }
+    }
+    else
+    {
+        <div class="no-comments">
+
+            <p>
+                Henüz yorum yapılmamış.
+            </p>
+
+        </div>
+    }
+
+</div>

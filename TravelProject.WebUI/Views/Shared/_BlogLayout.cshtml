@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>@ViewData["Title"] - Travel Blog</title>
+
+    <link href="~/web2/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/web2/css/style.css" rel="stylesheet" type="text/css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald:100,300,400,700"
+          rel="stylesheet"
+          type="text/css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic"
+          rel="stylesheet"
+          type="text/css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="~/web2/js/move-top.js"></script>
+    <script src="~/web2/js/easing.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+
+            <div class="logo">
+                <a asp-controller="Home" asp-action="Index">
+                    <img src="~/web2/images/logo.jpg" alt="Logo" />
+                </a>
+            </div>
+
+            <div class="top-menu">
+
+                <div class="search">
+                    <form>
+                        <input type="text" placeholder="Ara..." />
+                        <input type="submit" value="" />
+                    </form>
+                </div>
+
+                <span class="menu"></span>
+
+                <ul>
+                    <li>
+                        <a asp-controller="Home"
+                           asp-action="Index">
+                            HOME
+                        </a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="About"
+                           asp-action="Index">
+                            ABOUT
+                        </a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Contact"
+                           asp-action="Index">
+                            CONTACT
+                        </a>
+                    </li>
+
+                    <div class="clearfix"></div>
+                </ul>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <div class="footer">
+        <div class="container">
+            <p>
+                Copyright © 2026 Travel Project
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        $("span.menu").click(function () {
+            $(".top-menu ul").slideToggle("slow");
+        });
+    </script>
+
+    <script>
+        jQuery(document).ready(function ($) {
+
+            $(".scroll").click(function (event) {
+
+                event.preventDefault();
+
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

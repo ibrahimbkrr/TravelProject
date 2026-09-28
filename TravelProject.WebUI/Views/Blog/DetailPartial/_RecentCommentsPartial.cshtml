@@ -1,0 +1,42 @@
+﻿@using TravelProject.Dto.CommentDtos
+@model List<ResultCommentDto>
+
+<div class="comments">
+
+    <h3>SON YORUMLAR</h3>
+
+    @if (Model != null && Model.Any())
+    {
+        <ul>
+
+            @foreach (var comment in Model.Take(5))
+            {
+                <li>
+
+                    <strong>
+                        @comment.UserName
+                    </strong>
+
+                    <p>
+                        @comment.CommentText
+                    </p>
+
+                    <span class="recent-comment-date">
+                        @comment.CreatedDate.ToString("dd.MM.yyyy HH:mm")
+                    </span>
+
+                </li>
+            }
+
+        </ul>
+    }
+    else
+    {
+        <ul>
+            <li>
+                Henüz yorum bulunmuyor.
+            </li>
+        </ul>
+    }
+
+</div>

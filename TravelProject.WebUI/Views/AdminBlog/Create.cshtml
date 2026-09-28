@@ -1,0 +1,65 @@
+﻿@using TravelProject.Dto.BlogDtos
+@model CreateBlogDto
+
+@{
+    ViewBag.Title = "Yeni Blog Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container">
+
+    <h2>Yeni Blog Ekle</h2>
+
+    <form asp-controller="AdminBlog"
+          asp-action="Create"
+          method="post"
+          class="w3-container w3-card-4 w3-light-grey"
+          style="padding:25px; margin-top:20px;">
+
+        <p>
+            <label>Başlık</label>
+
+            <input asp-for="Title"
+                   class="w3-input w3-border"
+                   type="text" />
+        </p>
+
+        <p>
+            <label>Açıklama</label>
+
+            <textarea asp-for="Description"
+                      class="w3-input w3-border"
+                      rows="6"></textarea>
+        </p>
+
+        <p>
+            <label>Görsel Yolu</label>
+
+            <input asp-for="ImageUrl"
+                   class="w3-input w3-border"
+                   type="text"
+                   placeholder="/web/images/ornek.jpg" />
+        </p>
+
+        <p>
+
+            <button type="submit"
+                    class="w3-button w3-green">
+
+                Kaydet
+
+            </button>
+
+            <a asp-controller="AdminBlog"
+               asp-action="Index"
+               class="w3-button w3-grey">
+
+                Listeye Dön
+
+            </a>
+
+        </p>
+
+    </form>
+
+</div>

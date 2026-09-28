@@ -1,0 +1,134 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>@ViewData["Title"] - Easy Trip</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet"
+          href="~/web/css/style.css"
+          type="text/css"
+          media="all"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/web/css/slider.css"
+          type="text/css"
+          media="all"
+          asp-append-version="true" />
+
+    <script src="~/web/js/jquery.min.js"></script>
+    <script src="~/web/js/responsiveslides.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#slider1").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks"
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="wrap">
+
+            <div class="logo">
+                <a asp-controller="Home" asp-action="Index">
+                    <img src="~/web/images/logo.png" alt="" />
+                </a>
+            </div>
+
+            <div class="con-right">
+
+                <div class="grid1-l-img">
+                    <img src="~/web/images/contact.png" alt="">
+                </div>
+
+                <div class="grid1-l-desc">
+                    <p>Contact : +91 00000-55555</p>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+
+
+    <div class="header-bottom">
+        <div class="wrap">
+
+            <ul id="nav">
+
+                <li>
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+
+                <li>
+                    <a class="hsubs"
+                       asp-controller="About"
+                       asp-action="Index">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a class="hsubs" href="#">
+                        Destinations
+                    </a>
+
+                    <ul class="subs">
+                        <li><a href="#">Hotels</a></li>
+                        <li><a href="#">Restaurants</a></li>
+                        <li><a href="#">Beach Resorts</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a asp-controller="Blog"
+                       asp-action="Index">
+                        Blog
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-controller="Contact"
+                       asp-action="Index">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+
+    @RenderBody()
+
+
+    <div class="footer-bottom">
+        <div class="wrap">
+
+            <div class="copy">
+                <p>
+                    &copy; 2013 Easy-Trip. All Rights Reserved |
+                    Design by
+                    <a href="http://w3layouts.com">
+                        W3Layouts
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿@using TravelProject.Dto.BlogDtos
+@model List<ResultBlogDto>
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<partial name="Partial/_HomeBannerPartial"
+         model="Model" />
+
+<div class="content">
+    <div class="wrap">
+        <div class="wrapper">
+
+            <partial name="Partial/_HomeWelcomePartial" />
+
+            <div class="grids">
+
+                <div class="box1">
+
+                    <partial name="Partial/_RecentBlogsPartial"
+                             model="Model" />
+
+                    <partial name="Partial/_FeaturedBlogsPartial"
+                             model="Model" />
+
+                    <div class="clear"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

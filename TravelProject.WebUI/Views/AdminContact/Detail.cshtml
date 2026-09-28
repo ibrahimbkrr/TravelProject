@@ -1,0 +1,59 @@
+﻿@using TravelProject.Dto.ContactDtos
+@model ResultContactDto
+
+@{
+    ViewBag.Title = "Mesaj Detayı";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container">
+
+    <h2>Mesaj Detayı</h2>
+
+    <div class="w3-card-4 w3-light-grey"
+         style="padding:25px; margin-top:20px;">
+
+        <p>
+            <strong>Ad Soyad:</strong><br />
+            @Model.NameSurname
+        </p>
+
+        <p>
+            <strong>Email:</strong><br />
+            @Model.Email
+        </p>
+
+        <p>
+            <strong>Konu:</strong><br />
+            @Model.Subject
+        </p>
+
+        <p>
+            <strong>Tarih:</strong><br />
+            @Model.CreatedDate.ToString("dd.MM.yyyy HH:mm")
+        </p>
+
+        <hr />
+
+        <p>
+            <strong>Mesaj:</strong>
+        </p>
+
+        <div class="w3-panel w3-white w3-border"
+             style="padding:15px;">
+
+            @Model.Message
+
+        </div>
+
+        <a asp-controller="AdminContact"
+           asp-action="Index"
+           class="w3-button w3-grey">
+
+            Listeye Dön
+
+        </a>
+
+    </div>
+
+</div>

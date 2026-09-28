@@ -1,0 +1,66 @@
+# Visual Studio / IDE
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.sln.ide
+*.rsuser
+
+# .NET build, test and publish output
+**/bin/
+**/obj/
+[Dd]ebug/
+[Rr]elease/
+artifacts/
+**/[Pp]ublish/
+**/[Pp]ublishOutput/
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.nupkg
+*.snupkg
+
+# Azure / user-specific deployment settings
+**/Properties/PublishProfiles/
+**/Properties/ServiceDependencies/
+**/Properties/serviceDependencies*.json
+*.pubxml
+*.pubxml.user
+*.publishsettings
+*.publish.xml
+*.azurePubxml
+
+# Local configuration and credentials
+appsettings.Development.json
+appsettings.*.local.json
+secrets.json
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+*.key
+
+# Logs, temporary files and local database files
+logs/
+*.log
+*.tmp
+*.temp
+*.bak
+*.cache
+*.orig
+*.swp
+*.swo
+*.mdf
+*.ldf
+*.db
+*.db-shm
+*.db-wal
+.DS_Store
+Thumbs.db
+Desktop.ini
+node_modules/

@@ -1,0 +1,91 @@
+﻿@using TravelProject.Dto.ContactDtos
+@model List<ResultContactDto>
+
+@{
+    ViewBag.Title = "Mesajlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container">
+
+    <div class="w3-bar w3-margin-bottom">
+
+        <h2 class="w3-bar-item">
+            Gelen Mesajlar
+        </h2>
+
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="w3-responsive">
+
+            <table class="w3-table-all w3-hoverable">
+
+                <thead>
+                    <tr class="w3-teal">
+                        <th>Id</th>
+                        <th>Ad Soyad</th>
+                        <th>Email</th>
+                        <th>Konu</th>
+                        <th>Tarih</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @item.ContactId
+                            </td>
+
+                            <td>
+                                @item.NameSurname
+                            </td>
+
+                            <td>
+                                @item.Email
+                            </td>
+
+                            <td>
+                                @item.Subject
+                            </td>
+
+                            <td>
+                                @item.CreatedDate.ToString("dd.MM.yyyy HH:mm")
+                            </td>
+
+                            <td>
+
+                                <a asp-controller="AdminContact"
+                                   asp-action="Detail"
+                                   asp-route-id="@item.ContactId"
+                                   class="w3-button w3-blue w3-small">
+
+                                    Görüntüle
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+    else
+    {
+        <div class="w3-panel w3-pale-yellow">
+            <p>Henüz mesaj bulunmuyor.</p>
+        </div>
+    }
+
+</div>

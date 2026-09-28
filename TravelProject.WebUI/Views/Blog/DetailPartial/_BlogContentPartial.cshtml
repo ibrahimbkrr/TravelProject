@@ -1,0 +1,20 @@
+﻿@using TravelProject.Dto.BlogDtos
+@model ResultBlogDto
+
+<div class="single-grid">
+
+    <h2>@Model.Title</h2>
+
+    <img src="@Model.ImageUrl"
+         alt="@Model.Title" />
+
+    <p>
+        @Model.Description
+    </p>
+
+    <p>
+        <strong>Yayın Tarihi:</strong>
+        @Model.CreatedDate.ToString("dd.MM.yyyy")
+    </p>
+
+</div>

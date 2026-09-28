@@ -1,0 +1,405 @@
+﻿@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewBag.Title - TravelProject Admin</title>
+
+    <!-- W3.CSS -->
+    <link rel="stylesheet"
+          href="https://www.w3schools.com/w3css/5/w3.css" />
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7f8fa;
+        }
+
+
+        /* ==================================================
+                   SIDEBAR
+                   ================================================== */
+
+        .admin-sidebar {
+            width: 230px;
+            background-color: #ffffff !important;
+            border-right: 1px solid #e5e7eb;
+        }
+
+
+        .admin-logo {
+            padding: 25px 20px;
+            font-size: 21px;
+            font-weight: bold;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+
+            .admin-logo span {
+                color: #009688;
+            }
+
+
+        .admin-menu {
+            padding-top: 15px;
+        }
+
+
+        .admin-menu-item {
+            padding: 13px 20px !important;
+            margin: 4px 10px;
+            width: auto !important;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.2s ease;
+        }
+
+
+            .admin-menu-item:hover {
+                background-color: #f1f5f9 !important;
+                color: #009688 !important;
+            }
+
+
+            /* Aktif menü */
+            .admin-menu-item.active {
+                background-color: #009688 !important;
+                color: white !important;
+                font-weight: bold;
+            }
+
+
+        .admin-menu-icon {
+            display: inline-block;
+            width: 28px;
+            font-size: 17px;
+        }
+
+
+        .admin-menu-divider {
+            margin: 15px 15px;
+            border: 0;
+            border-top: 1px solid #eeeeee;
+        }
+
+
+        /* ==================================================
+                   GİRİŞ YAPAN KULLANICI
+                   ================================================== */
+
+        .admin-user-box {
+            margin: 15px 10px 8px 10px;
+            padding: 12px 14px;
+            background-color: #f1f5f9;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #555;
+        }
+
+
+            .admin-user-box strong {
+                color: #009688;
+            }
+
+
+        /* ==================================================
+                   ANA İÇERİK
+                   ================================================== */
+
+        .admin-content {
+            margin-left: 230px;
+        }
+
+
+        /* ==================================================
+                   HEADER
+                   ================================================== */
+
+        .admin-header {
+            padding: 12px 25px;
+            background-color: #009688 !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+
+
+            .admin-header h3 {
+                margin: 8px 0;
+                color: white;
+            }
+
+
+        /* ==================================================
+                   SAYFA İÇERİĞİ
+                   ================================================== */
+
+        .admin-page-content {
+            padding: 30px;
+        }
+
+
+        /* ==================================================
+                   MOBİL
+                   ================================================== */
+
+        @@media (max-width: 992px) {
+
+            .admin-content {
+                margin-left: 0;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         SIDEBAR
+         ================================================== -->
+
+    <nav class="w3-sidebar
+                w3-bar-block
+                w3-collapse
+                w3-card
+                admin-sidebar"
+         id="mySidebar">
+
+
+        <!-- LOGO -->
+        <div class="admin-logo">
+
+            Travel<span>Admin</span>
+
+        </div>
+
+
+        <!-- MOBİL KAPAT -->
+        <button class="w3-bar-item
+                       w3-button
+                       w3-hide-large
+                       w3-red"
+                onclick="w3_close()">
+
+            Menüyü Kapat ✕
+
+        </button>
+
+
+        <div class="admin-menu">
+
+
+            <!-- DASHBOARD -->
+            <a asp-controller="Admin"
+               asp-action="Index"
+               class="w3-bar-item w3-button admin-menu-item
+                      @(currentController == "Admin" ? "active" : "")">
+
+                <span class="admin-menu-icon">
+                    🏠
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+            <!-- BLOGLAR -->
+            <a asp-controller="AdminBlog"
+               asp-action="Index"
+               class="w3-bar-item w3-button admin-menu-item
+                      @(currentController == "AdminBlog" ? "active" : "")">
+
+                <span class="admin-menu-icon">
+                    📝
+                </span>
+
+                Bloglar
+
+            </a>
+
+
+            <!-- HAKKIMIZDA -->
+            <a asp-controller="AdminAbout"
+               asp-action="Index"
+               class="w3-bar-item w3-button admin-menu-item
+                      @(currentController == "AdminAbout" ? "active" : "")">
+
+                <span class="admin-menu-icon">
+                    ℹ️
+                </span>
+
+                Hakkımızda
+
+            </a>
+
+
+            <!-- MESAJLAR -->
+            <a asp-controller="AdminContact"
+               asp-action="Index"
+               class="w3-bar-item w3-button admin-menu-item
+                      @(currentController == "AdminContact" ? "active" : "")">
+
+                <span class="admin-menu-icon">
+                    ✉️
+                </span>
+
+                Mesajlar
+
+            </a>
+
+
+            <!-- YORUMLAR -->
+            <a asp-controller="AdminComment"
+               asp-action="Index"
+               class="w3-bar-item w3-button admin-menu-item
+                      @(currentController == "AdminComment" ? "active" : "")">
+
+                <span class="admin-menu-icon">
+                    💬
+                </span>
+
+                Yorumlar
+
+            </a>
+
+
+            <hr class="admin-menu-divider" />
+
+
+            <!-- ANA SİTE -->
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="w3-bar-item
+                      w3-button
+                      admin-menu-item">
+
+                <span class="admin-menu-icon">
+                    🌐
+                </span>
+
+                Siteye Git
+
+            </a>
+
+
+            <!-- GİRİŞ YAPAN KULLANICI -->
+            @if (User.Identity != null &&
+                        User.Identity.IsAuthenticated)
+            {
+                <div class="admin-user-box">
+
+                    Hoş geldin,
+
+                    <strong>
+                        @User.Identity.Name
+                    </strong>
+
+                </div>
+
+
+                <!-- ÇIKIŞ YAP -->
+                <a asp-controller="Login"
+                   asp-action="Logout"
+                   class="w3-bar-item
+                              w3-button
+                              admin-menu-item">
+
+                    <span class="admin-menu-icon">
+                        🚪
+                    </span>
+
+                    Çıkış Yap
+
+                </a>
+            }
+
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ==================================================
+         ANA İÇERİK
+         ================================================== -->
+
+    <div class="w3-main admin-content">
+
+
+        <!-- HEADER -->
+        <div class="w3-container
+                    admin-header">
+
+            <h3>
+
+                <button class="w3-button
+                               w3-teal
+                               w3-hide-large"
+                        onclick="w3_open()">
+
+                    ☰
+
+                </button>
+
+                @ViewBag.Title
+
+            </h3>
+
+        </div>
+
+
+
+        <!-- SAYFA İÇERİĞİ -->
+        <main class="admin-page-content">
+
+            @RenderBody()
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         SIDEBAR JS
+         ================================================== -->
+
+    <script>
+
+        function w3_open() {
+
+            document.getElementById("mySidebar")
+                .style.display = "block";
+
+        }
+
+
+        function w3_close() {
+
+            document.getElementById("mySidebar")
+                .style.display = "none";
+
+        }
+
+    </script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

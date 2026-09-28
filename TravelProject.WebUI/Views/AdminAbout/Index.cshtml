@@ -1,0 +1,84 @@
+﻿@using TravelProject.Dto.AboutUsDtos
+@model List<ResultAboutUsDto>
+
+@{
+    ViewBag.Title = "Hakkımızda";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container">
+
+    <div class="w3-bar w3-margin-bottom">
+
+        <h2 class="w3-bar-item">
+            Hakkımızda Yönetimi
+        </h2>
+
+    </div>
+
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="w3-responsive">
+
+            <table class="w3-table-all w3-hoverable">
+
+                <thead>
+                    <tr class="w3-teal">
+                        <th>Id</th>
+                        <th>Başlık</th>
+                        <th>Görsel</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @item.AboutUsId
+                            </td>
+
+                            <td>
+                                @item.Title
+                            </td>
+
+                            <td>
+                                <img src="@item.ImageUrl"
+                                     alt="@item.Title"
+                                     style="width:120px; height:70px; object-fit:cover;" />
+                            </td>
+
+                            <td>
+
+                                <a asp-controller="AdminAbout"
+                                   asp-action="Update"
+                                   asp-route-id="@item.AboutUsId"
+                                   class="w3-button w3-blue w3-small">
+
+                                    Güncelle
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+    else
+    {
+        <div class="w3-panel w3-pale-yellow">
+            <p>Hakkımızda kaydı bulunamadı.</p>
+        </div>
+    }
+
+</div>

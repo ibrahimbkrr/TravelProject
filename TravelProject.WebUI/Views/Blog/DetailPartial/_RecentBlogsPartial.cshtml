@@ -1,0 +1,38 @@
+﻿@using TravelProject.Dto.BlogDtos
+@model List<ResultBlogDto>
+
+<div class="recent">
+
+    <h3>SON YAZILAR</h3>
+
+    @if (Model != null && Model.Any())
+    {
+        <ul>
+
+            @foreach (var item in Model)
+            {
+                <li>
+
+                    <a asp-controller="Blog"
+                       asp-action="Detail"
+                       asp-route-id="@item.BlogId">
+
+                        @item.Title
+
+                    </a>
+
+                    <span class="recent-blog-date">
+                        @item.CreatedDate.ToString("dd.MM.yyyy")
+                    </span>
+
+                </li>
+            }
+
+        </ul>
+    }
+    else
+    {
+        <p>Henüz başka blog bulunmuyor.</p>
+    }
+
+</div>

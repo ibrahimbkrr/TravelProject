@@ -1,0 +1,50 @@
+﻿@using TravelProject.Dto.BlogDtos
+@model List<ResultBlogDto>
+
+<div class="padding">
+
+    <h4>Son Bloglar</h4>
+
+    <ul class="list list-pad">
+
+        @if (Model != null && Model.Any())
+        {
+            var counter = 1;
+
+            foreach (var item in Model.Take(10))
+            {
+                var cssClass = counter % 2 == 0
+                ? "list-bg1"
+                : "list-bg";
+
+                <li class="@cssClass">
+
+                    <span>@counter.</span>
+
+                    <a asp-controller="Blog"
+                       asp-action="Detail"
+                       asp-route-id="@item.BlogId">
+                        @item.Title
+                    </a>
+
+                </li>
+
+                counter++;
+            }
+        }
+        else
+        {
+            <li class="list-bg">
+                Henüz blog bulunamadı.
+            </li>
+        }
+
+    </ul>
+
+    <a asp-controller="Blog"
+       asp-action="Index"
+       class="link1">
+        Tüm Blogları Gör
+    </a>
+
+</div>

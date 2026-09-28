@@ -1,0 +1,110 @@
+﻿@using TravelProject.Dto.BlogDtos
+@model List<ResultBlogDto>
+
+@{
+    ViewData["Title"] = "Bloglar";
+}
+
+<link href="~/web2/css/blog-list.css" rel="stylesheet" />
+
+<section class="modern-blog">
+
+    <div class="wrap">
+
+        <div class="modern-blog-header">
+
+            <span class="modern-blog-eyebrow">
+                KEŞFET
+            </span>
+
+            <h1>
+                Gezi Blogları
+            </h1>
+
+            <p>
+                Yeni rotalar keşfedin, seyahat fikirleri alın ve
+                unutulmaz yolculuklar için ilham bulun.
+            </p>
+
+        </div>
+
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="modern-blog-grid">
+
+                @foreach (var item in Model)
+                {
+                    <article class="modern-blog-card">
+
+                        <a asp-controller="Blog"
+                           asp-action="Detail"
+                           asp-route-id="@item.BlogId"
+                           class="modern-blog-image">
+
+                            <img src="@item.ImageUrl"
+                                 alt="@item.Title" />
+
+                        </a>
+
+
+                        <div class="modern-blog-content">
+
+                            <div class="modern-blog-meta">
+
+                                <span class="modern-blog-category">
+                                    GEZİ
+                                </span>
+
+                                <span class="modern-blog-date">
+                                    @item.CreatedDate.ToString("dd MMM yyyy")
+                                </span>
+
+                            </div>
+
+
+                            <h2>
+
+                                <a asp-controller="Blog"
+                                   asp-action="Detail"
+                                   asp-route-id="@item.BlogId">
+
+                                    @item.Title
+
+                                </a>
+
+                            </h2>
+
+
+                            <p>
+                                @item.Description
+                            </p>
+
+
+                            <a asp-controller="Blog"
+                               asp-action="Detail"
+                               asp-route-id="@item.BlogId"
+                               class="modern-blog-read">
+
+                                Devamını Oku
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+                }
+
+            </div>
+        }
+        else
+        {
+            <div class="modern-blog-empty">
+                Henüz blog yazısı bulunmuyor.
+            </div>
+        }
+
+    </div>
+
+</section>

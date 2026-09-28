@@ -1,0 +1,85 @@
+﻿@using TravelProject.Dto.BlogDtos
+@model List<ResultBlogDto>
+
+<div class="header-banner">
+    <div class="wrap">
+        <div class="banner">
+            <div class="indent">
+
+                <h2 class="indent-left margin-bot">
+                    Plan the Easy Trip
+                </h2>
+
+                <div class="banner-left">
+
+                    <div class="con-text">
+                        <div class="grid1-img">
+                            <img src="~/web/images/glass.png" alt="">
+                        </div>
+                        <div class="grid1-desc">
+                            <p>Restaurants</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="con-text">
+                        <div class="grid1-img">
+                            <img src="~/web/images/flight.png" alt="">
+                        </div>
+                        <div class="grid1-desc">
+                            <p>Flights</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="con-text">
+                        <div class="grid1-img">
+                            <img src="~/web/images/group.png" alt="">
+                        </div>
+                        <div class="grid1-desc">
+                            <p>Things to do</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="con-text">
+                        <div class="grid1-img">
+                            <img src="~/web/images/key.png" alt="">
+                        </div>
+                        <div class="grid1-desc">
+                            <p>Vacation Rents</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="header_bottom_right_images">
+
+                    <div class="slider">
+
+                        <ul class="rslides" id="slider1">
+
+                            @foreach (var item in Model.Take(4))
+                            {
+                                <li>
+                                    <img src="@item.ImageUrl"
+                                         alt="@item.Title" />
+                                </li>
+                            }
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>

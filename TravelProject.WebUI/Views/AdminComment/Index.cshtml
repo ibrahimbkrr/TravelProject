@@ -1,0 +1,96 @@
+﻿@using TravelProject.Dto.CommentDtos
+@model List<ResultCommentDto>
+
+@{
+    ViewBag.Title = "Yorumlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container">
+
+    <div class="w3-bar w3-margin-bottom">
+
+        <h2 class="w3-bar-item">
+            Yorum Yönetimi
+        </h2>
+
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="w3-responsive">
+
+            <table class="w3-table-all w3-hoverable">
+
+                <thead>
+                    <tr class="w3-teal">
+                        <th>Id</th>
+                        <th>Kullanıcı</th>
+                        <th>Yorum</th>
+                        <th>Blog Adı</th>
+                        <th>Tarih</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @item.CommentId
+                            </td>
+
+                            <td>
+                                @item.UserName
+                            </td>
+
+                            <td>
+                                @item.CommentText
+                            </td>
+
+                            <td>
+                                @item.BlogName
+                            </td>
+
+                            <td>
+                                @item.CreatedDate.ToString("dd.MM.yyyy HH:mm")
+                            </td>
+
+                            <td>
+
+                                <a asp-controller="AdminComment"
+                                   asp-action="Delete"
+                                   asp-route-id="@item.CommentId"
+                                   class="w3-button w3-red w3-small"
+                                   onclick="return confirm('Bu yorumu silmek istediğinize emin misiniz?');">
+
+                                    Sil
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+    else
+    {
+        <div class="w3-panel w3-pale-yellow">
+
+            <p>
+                Henüz yorum bulunmuyor.
+            </p>
+
+        </div>
+    }
+
+</div>
